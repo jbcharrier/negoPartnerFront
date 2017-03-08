@@ -1,0 +1,42 @@
+<div layout="vertical" layout-fill>
+
+  <md-content flex>
+    <header>
+      <acme-navbar></acme-navbar>
+    </header>
+
+    <md-content class="siteList" layout="row">
+      <md-card flex>
+        <md-table-container ng-cloak layout-wrap>
+          <table md-table style="text: center">
+            <thead md-head>
+            <tr md-row>
+              <th md-column><span>Site</span></th>
+              <th md-column>Description</th>
+              <th md-column>Espaces</th>
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row ng-repeat="site in sites">
+              <td md-cell><a ui-sref="areas({siteId: site.id})"><b>{{ site.name }}</b></a></td>
+              <td md-cell>
+                <span>{{site.address}}</span>
+              </td>
+              <td md-cell>
+                <ul class="area-list">
+                  <li ng-repeat="area in site.areas">
+                    <span>{{area.name}}</span>
+                    <span>-&nbsp;</span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+      </md-card>
+    </md-content>
+
+  </md-content>
+
+</div>

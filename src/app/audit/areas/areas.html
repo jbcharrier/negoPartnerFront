@@ -1,0 +1,42 @@
+<div layout="vertical" layout-fill>
+
+  <md-content flex>
+    <header>
+      <acme-navbar></acme-navbar>
+    </header>
+
+    <md-content class="areasList" layout="row">
+      <md-card flex>
+        <md-table-container ng-cloak layout-wrap>
+          <table md-table style="text: center">
+            <thead md-head>
+            <tr md-row>
+              <th md-column><span>Espace</span></th>
+              <th md-column>Description</th>
+              <th md-column>Opérations</th>
+            </tr>
+            </thead>
+            <tbody md-body>
+            <tr md-row ng-repeat="area in areas">
+              <td md-cell><a ui-sref="audit-process({siteId: siteId, areaId: area.id})"><b>{{ area.name }}</b></a></td>
+              <td md-cell>
+                <span>{{area.complement}}</span>
+              </td>
+              <td md-cell>
+                <ul class="operations-list">
+                  <li ng-repeat="operation in area.operations">
+                    <span>{{operation.name}}</span>
+                    <span>-&nbsp;</span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+      </md-card>
+    </md-content>
+
+  </md-content>
+
+</div>

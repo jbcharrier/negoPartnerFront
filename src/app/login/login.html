@@ -1,0 +1,23 @@
+<md-content class="login" layout="column">
+  <section layout="row" layout-align="center center">
+    <form name="loginUserForm" flex-gt-sm="40" ng-submit="loginUser(user)" style="padding-top: 10%">
+
+      <h2>Merci de vous identifier</h2>
+
+      <md-input-container class="md-block" flex>
+        <label>Email*</label>
+        <input ng-model="user.email" type="email">
+      </md-input-container>
+
+      <md-input-container class="md-block" flex>
+        <label>Password*</label>
+        <input ng-model="user.password" type="text">
+      </md-input-container>
+
+      <md-input-container layout="row" layout-align="end center">
+        <md-button class="md-raised md-primary" type="submit">Valider</md-button>
+      </md-input-container>
+
+    </form>
+  </section>
+</md-content>
