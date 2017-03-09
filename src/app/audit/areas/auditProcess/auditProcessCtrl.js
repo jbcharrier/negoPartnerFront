@@ -5,13 +5,12 @@ export class AuditProcessController {
     var accountId = '-Kbf1d-w6wJ_KVrW_mQs';
     $scope.siteId = $stateParams.siteId;
     $scope.areaId = $stateParams.areaId;
+    
 
     if (accountId && $scope.siteId && $scope.areaId) {
-      // Account.getAreasList(accountId, $scope.siteId).then(function (areas) {
-      //   console.log("areas", areas);
-      //   $scope.areas = areas;
-      // })
-      console.log("toto");
+      Account.getOperationsList(accountId, $scope.siteId, $scope.areaId).then(function (operations) {
+        $scope.operations = operations;
+      })
     }
   }
 }

@@ -1,1 +1,31 @@
-<p>Audit Process</p>
+<div layout="vertical" layout-fill>
+
+  <md-content flex>
+    <header>
+      <acme-navbar></acme-navbar>
+    </header>
+
+    <md-content class="auditProcess" layout="row">
+      <md-card flex>
+        <section ng-repeat="operation in operations" layout="column">
+          <div layout layout-align="start center" class="operationLine">
+            <p flex="55" flex-gt-xs="70" flex-gt-md="80">{{operation.name}}</p>
+            <md-radio-group ng-model="operation.result" class="md-primary" layout layout-align="center center" flex>
+              <md-radio-button ng-value="1" flex>
+                <md-icon> done </md-icon>
+              </md-radio-button>
+              <md-radio-button ng-value="0" flex>
+                <md-icon> warning </md-icon>
+              </md-radio-button>
+            </md-radio-group>
+          </div>
+          <md-divider></md-divider>
+        </section>
+
+      </md-card>
+    </md-content>
+
+  </md-content>
+
+</div>
+

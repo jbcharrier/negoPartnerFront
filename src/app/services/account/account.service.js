@@ -55,4 +55,15 @@ export class AccountFactory {
     });
     return defer.promise;
   }
+  
+  getOperationsList (accountId, siteId, areaId) {
+    let defer = this.$q.defer();
+    this.firebase.database().ref('account').child(accountId).child('sites').child(siteId).child('areas').child(areaId).child('operations').once('value').then(function (data) {
+      let operationsList = data.val();
+      defer.resolve(operationsList);
+    }, function (error) {
+      defer.reject(error);
+    });
+    return defer.promise;
+  }
 }
