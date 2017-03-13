@@ -1,5 +1,5 @@
 export class AuditProcessController {
-  constructor ($scope, $stateParams, Account) {
+  constructor ($scope, $stateParams, Account, Audit) {
     'ngInject';
     
     var accountId = '-Kbf1d-w6wJ_KVrW_mQs';
@@ -11,6 +11,14 @@ export class AuditProcessController {
       Account.getOperationsList(accountId, $scope.siteId, $scope.areaId).then(function (operations) {
         $scope.operations = operations;
       })
+    }
+    
+    $scope.saveAudit = function (operations) {
+      angular.forEach(operations, function(operation) {
+        operation.auditDate = new Date();
+        console.log("operation", operation);
+      });
+      //TODO Audit.saveAudit()
     }
   }
 }

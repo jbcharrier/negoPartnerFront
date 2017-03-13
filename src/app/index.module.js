@@ -8,11 +8,12 @@ import { GithubContributorService } from '../app/components/githubContributor/gi
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
 import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
-import { LoginController } from './login/loginCtrl'
-import { AuditController } from './audit/auditCtrl'
-import { AccountFactory } from './services/account/account.service'
-import { AreasController } from './audit/areas/areasCtrl'
-import { AuditProcessController } from './audit/areas/auditProcess/auditProcessCtrl'
+import { LoginController } from './login/loginCtrl';
+import { AuditController } from './audit/auditCtrl';
+import { AccountFactory } from './services/account/account.service';
+import { AreasController } from './audit/areas/areasCtrl';
+import { AuditProcessController } from './audit/areas/auditProcess/auditProcessCtrl';
+import { AuditFactory } from './services/audit/audit.service';
 
 angular.module('negoPartnerFront', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial', 'toastr', 'md.data.table'])
   .constant('malarkey', malarkey)
@@ -25,6 +26,7 @@ angular.module('negoPartnerFront', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSani
   .service('webDevTec', WebDevTecService)
   .service('LoginController', LoginController)
   .service('Account', AccountFactory)
+  .service('Audit', AuditFactory)
   .controller('MainController', MainController)
   .controller('AuditController', AuditController)
   .controller('AreasController', AreasController)

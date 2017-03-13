@@ -5,7 +5,7 @@
       <acme-navbar></acme-navbar>
     </header>
 
-    <md-content class="auditProcess" layout="row">
+    <md-content class="auditProcess" layout="column">
       <md-card flex>
         <section ng-repeat="operation in operations" layout="column">
           <div layout layout-align="start center" class="operationLine">
@@ -21,11 +21,20 @@
           </div>
           <md-divider></md-divider>
         </section>
-
       </md-card>
+      <section layout layout-align="end center">
+        <md-button class="md-raised">
+          Retour à la liste des pièces
+        </md-button>
+        <md-button ng-click="saveAudit(operations)" class="md-raised md-primary">
+          Valider l'audit
+        </md-button>
+      </section>
     </md-content>
 
   </md-content>
 
 </div>
+
+<!--TODO faire une dialogue pour confirmer la validation de l'audit-->
 
