@@ -1,4 +1,4 @@
-export function config ($logProvider, $mdThemingProvider, toastrConfig, firebase) {
+export function config ($logProvider, $mdThemingProvider, firebase) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -6,13 +6,6 @@ export function config ($logProvider, $mdThemingProvider, toastrConfig, firebase
   $mdThemingProvider.theme('default')
     .primaryPalette('blue-grey')
     .accentPalette('grey');
-    
-  // Set options third-party lib
-  toastrConfig.allowHtml = true;
-  toastrConfig.timeOut = 3000;
-  toastrConfig.positionClass = 'toast-top-right';
-  toastrConfig.preventDuplicates = true;
-  toastrConfig.progressBar = true;
 
   let config = {
     apiKey: "AIzaSyDg41Sa3TqN0eZaUhb1GS7_McmACo8up1c",

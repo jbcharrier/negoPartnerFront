@@ -11,7 +11,8 @@ export class LoginController {
         }
         
       }, function (error) {
-        $log.error(error);
+        console.log("error", error);
+        $log.error(error.message);
       });
     }
   }
