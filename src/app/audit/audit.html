@@ -14,7 +14,7 @@
             </thead>
             <tbody md-body>
             <tr md-row ng-repeat="site in sites">
-              <td md-cell><a ui-sref="areas({siteId: site.id})"><b>{{ site.name }}</b></a></td>
+              <td md-cell><a ui-sref="areas({accountId: accountId, siteId: site.id})"><b>{{ site.name }}</b></a></td>
               <td md-cell>
                 <span>{{site.address}}</span>
               </td>

@@ -6,23 +6,45 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/login/login.html',
       controller: 'LoginController'
     })
-    .state('home', {
-      url: '/',
-      templateUrl: 'app/main/main.html',
-      controller: 'MainController',
-      controllerAs: 'main'
-    })
+    // .state('home', {
+    //   url: '/',
+    //   templateUrl: 'app/main/main.html',
+    //   controller: 'MainController',
+    //   controllerAs: 'main'
+    // })
     .state('audit', {
       url: '/audit',
       templateUrl: 'app/audit/audit.html',
-      controller: 'AuditController'
+      controller: 'AuditController',
+      params:{
+        accountId: null,
+      },
+      resolve: {
+        "check": function(Auth, $state){
+          if(Auth.checkPermission()){
+            console.log("Auth Permission OK")
+          } else {
+            $state.path('login');
+          }
+        }
+      }
     })
     .state('areas', {
       url: '/areas',
       templateUrl: 'app/audit/areas/areas.html',
       controller: 'AreasController',
       params:{
+        accountId: null,
         siteId: null
+      },
+      resolve: {
+        "check": function(Auth, $state){
+          if(Auth.checkPermission()){
+            console.log("Auth Permission OK")
+          } else {
+            $state.path('login');
+          }
+        }
       }
     })
     .state('audit-process', {
@@ -32,8 +54,16 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       params:{
         siteId: null,
         areaId: null
+      },
+      resolve: {
+        "check": function(Auth, $state){
+          if(Auth.checkPermission()){
+            console.log("Auth Permission OK")
+          } else {
+            $state.path('login');
+          }
+        }
       }
-    })
-  ;
+    });
   $urlRouterProvider.otherwise('/');
 }

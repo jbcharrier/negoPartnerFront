@@ -12,6 +12,7 @@ import { AreasController } from './audit/areas/areasCtrl';
 import { AuditProcessController } from './audit/areas/auditProcess/auditProcessCtrl';
 import { AuditFactory } from './services/audit/audit.service';
 import { UserFactory } from './services/user/user.service';
+import { Auth } from './services/auth/auth.service';
 
 angular.module('negoPartnerFront', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial', 'md.data.table'])
   .constant('moment', moment)
@@ -23,6 +24,7 @@ angular.module('negoPartnerFront', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSani
   .service('Account', AccountFactory)
   .service('Audit', AuditFactory)
   .service('User', UserFactory)
+  .service('Auth', Auth)
   .controller('MainController', MainController)
   .controller('LoginController', LoginController)
   .controller('AuditController', AuditController)

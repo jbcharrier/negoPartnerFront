@@ -1,12 +1,11 @@
 export class AuditController {
-  constructor ($scope, Account) {
+  constructor ($scope, $stateParams, Account) {
     'ngInject';
     
-    var accountId = '-Kbf1d-w6wJ_KVrW_mQs';
+    $scope.accountId = $stateParams.accountId;
   
-    if (accountId) {
-      Account.getAccount(accountId).then(function (account) {
-        console.log("account", account);
+    if ($scope.accountId) {
+      Account.getAccount($scope.accountId).then(function (account) {
         $scope.sites = account.sites;
       })
     }

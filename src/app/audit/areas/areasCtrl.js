@@ -2,12 +2,11 @@ export class AreasController {
   constructor ($scope, $stateParams, Account) {
     'ngInject';
     
-    var accountId = '-Kbf1d-w6wJ_KVrW_mQs';
+    $scope.accountId = $stateParams.accountId;
     $scope.siteId = $stateParams.siteId;
     
-    if (accountId && $scope.siteId) {
-      Account.getAreasList(accountId, $scope.siteId).then(function (areas) {
-        console.log("areas", areas);
+    if ($scope.accountId && $scope.siteId) {
+      Account.getAreasList($scope.accountId, $scope.siteId).then(function (areas) {
         $scope.areas = areas;
       })
     }
