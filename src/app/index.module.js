@@ -14,7 +14,7 @@ import { AuditFactory } from './services/audit/audit.service';
 import { UserFactory } from './services/user/user.service';
 import { Auth } from './services/auth/auth.service';
 
-angular.module('negoPartnerFront', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial', 'md.data.table'])
+angular.module('negoPartnerFront', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial', 'md.data.table'])
   .constant('moment', moment)
   .constant('firebase', firebase)
   .config(config)

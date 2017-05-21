@@ -3,6 +3,7 @@ export class AuditController {
     'ngInject';
     
     $scope.accountId = $stateParams.accountId;
+    console.log("$scope.accountId", $scope.accountId);
   
     if ($scope.accountId) {
       Account.getAccount($scope.accountId).then(function (account) {

@@ -23,7 +23,6 @@ export class LoginController {
             }
           });
         }
-        
       }).catch(function (error) {
         $mdToast.show(
           $mdToast.simple()

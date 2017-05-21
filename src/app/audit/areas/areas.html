@@ -14,7 +14,7 @@
             </thead>
             <tbody md-body>
             <tr md-row ng-repeat="area in areas">
-              <td md-cell><a ui-sref="audit-process({siteId: siteId, areaId: area.id})"><b>{{ area.name }}</b></a></td>
+              <td md-cell><a ui-sref="audit-process({accountId: accountId, siteId: siteId, areaId: area.id})"><b>{{ area.name }}</b></a></td>
               <td md-cell>
                 <span>{{area.complement}}</span>
               </td>

@@ -2,12 +2,12 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
   'ngInject';
   $stateProvider
     .state('login', {
-      url: '/login',
+      url: '/',
       templateUrl: 'app/login/login.html',
       controller: 'LoginController'
     })
     // .state('home', {
-    //   url: '/',
+    //   url: '/home',
     //   templateUrl: 'app/main/main.html',
     //   controller: 'MainController',
     //   controllerAs: 'main'
@@ -52,6 +52,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/audit/areas/auditProcess/auditProcess.html',
       controller: 'AuditProcessController',
       params:{
+        accountId: null,
         siteId: null,
         areaId: null
       },
