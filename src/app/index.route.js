@@ -21,8 +21,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       },
       resolve: {
         "check": function(Auth, $state){
-          if(Auth.checkPermission()){
-            console.log("Auth Permission OK")
+          if(sessionStorage.getItem('access')){
+            console.log("Auth Permission OK session")
+          } else if (Auth.checkPermission()){
+            console.log("Auth Permission OK Auth")
           } else {
             $state.path('login');
           }
@@ -39,8 +41,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       },
       resolve: {
         "check": function(Auth, $state){
-          if(Auth.checkPermission()){
-            console.log("Auth Permission OK")
+          if(sessionStorage.getItem('access')){
+            console.log("Auth Permission OK session")
+          } else if (Auth.checkPermission()){
+            console.log("Auth Permission OK Auth")
           } else {
             $state.path('login');
           }
@@ -58,8 +62,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       },
       resolve: {
         "check": function(Auth, $state){
-          if(Auth.checkPermission()){
-            console.log("Auth Permission OK")
+          if(sessionStorage.getItem('access')){
+            console.log("Auth Permission OK session")
+          } else if (Auth.checkPermission()){
+            console.log("Auth Permission OK Auth")
           } else {
             $state.path('login');
           }

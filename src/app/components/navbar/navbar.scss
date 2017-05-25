@@ -1,0 +1,14 @@
+.navbar{
+  section.user{
+    text-align: end;
+  }
+  md-icon{
+  font-size: 40px;
+    &.close-icon{
+      font-size: 16px;
+    }
+  }
+  span{
+    font-size: 16px;
+  }
+}

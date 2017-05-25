@@ -16,6 +16,7 @@ export class Auth {
   
   getPermission() {
     this.access = true;
+    sessionStorage.setItem('access', true);
   }
   
   checkPermission() {

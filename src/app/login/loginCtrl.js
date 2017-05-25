@@ -3,16 +3,24 @@ export class LoginController {
     'ngInject';
     
     $scope.user = User.getNewUser();
+    sessionStorage.clear();
     
     $scope.loginUser = function (user) {
       User.signIn(user.email, user.password).then(function (data) {
         if(data.uid){
           Auth.getPermission();
-          User.getLoggedUser(user.email).then(function (newUser) {
-            if(newUser.accountId && newUser.siteSelected) {
-              $state.go('areas', {accountId: newUser.accountId, siteId: newUser.siteSelected});
-            } else if(newUser.accountId){
-                $state.go('audit', {accountId: newUser.accountId});
+          User.getLoggedUser(user.email).then(function (user) {
+            $scope.newUser = {
+              firstname: user.firstname,
+              lastname: user.lastname,
+              email: user.email
+            };
+            let myUser = JSON.stringify($scope.newUser);
+            sessionStorage.setItem('user', myUser);
+            if(user.accountId && user.siteSelected) {
+              $state.go('areas', {accountId: user.accountId, siteId: user.siteSelected});
+            } else if(user.accountId){
+              $state.go('audit', {accountId: user.accountId});
             } else {
               $mdToast.show(
                 $mdToast.simple()

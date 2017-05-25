@@ -16,10 +16,17 @@ export function NavbarDirective() {
 }
 
 class NavbarController {
-  constructor (moment) {
+  constructor ($rootScope, $scope, $state, moment) {
     'ngInject';
 
     // "this.creationDate" is available by directive option "bindToController: true"
     this.relativeDate = moment(this.creationDate).fromNow();
+    $scope.newUser = sessionStorage.getItem('user');
+    this.user = JSON.parse($scope.newUser);
+    
+    $scope.disconnect = function(){
+      sessionStorage.clear();
+      $state.go('login');
+    }
   }
 }

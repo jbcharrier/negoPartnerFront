@@ -8,6 +8,7 @@
             <thead md-head>
             <tr md-row>
               <th md-column><span>Espace de l'audit</span></th>
+              <th md-column>Superficie (m2)</th>
               <th md-column>Description</th>
               <th md-column>Opérations</th>
             </tr>
@@ -15,6 +16,9 @@
             <tbody md-body>
             <tr md-row ng-repeat="area in areas">
               <td md-cell><a ui-sref="audit-process({accountId: accountId, siteId: siteId, areaId: area.id})"><b>{{ area.name }}</b></a></td>
+              <td md-cell>
+                <span>{{area.surface}}</span>
+              </td>
               <td md-cell>
                 <span>{{area.complement}}</span>
               </td>

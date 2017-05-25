@@ -1,8 +1,16 @@
-<md-toolbar layout layout-padding layout-align="start center">
-  <section flex>
-    <a ui-sref="areas">
+<md-toolbar layout layout-padding layout-align="start center" class="navbar">
+  <section flex="50">
+    <a>
       <img src="../../../assets/images/logo-negopartner.png" alt="Logo Nego-Partner">
       <h1 hide="true">Nego-Partner</h1>
     </a>
+  </section>
+  <section flex="50" class="user" ng-if="newUser">
+    <md-icon class="material-icons md-48">account_circle</md-icon>
+    <span>{{vm.user.firstname}} {{vm.user.lastname}}</span>
+    <md-button class="md-icon-button" ng-click="disconnect()">
+      <md-tooltip md-direction="bottom">Déconnexion</md-tooltip>
+      <md-icon class="material-icons md-48 close-icon">close</md-icon>
+    </md-button>
   </section>
 </md-toolbar>
