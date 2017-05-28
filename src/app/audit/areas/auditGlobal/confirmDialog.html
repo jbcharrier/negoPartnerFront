@@ -1,0 +1,43 @@
+<md-dialog aria-label="Confirm Audit Dialog" class="audit-global-dialog">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Confirmation</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content results">
+        <h3>Sauvegarder vos réponses pour l'audit de cet espace ?</h3>
+        <div layout-wrap layout="column">
+          <p>Note de l'audit : <span>{{ infos.total }}</span></p>
+          <p>Nombre d'alertes : <span>{{ infos.alert }}</span></p>
+          <p>A faire pour le prochain audit :</p>
+          <p class="commentary">{{ infos.commentary }}</p>
+        </div>
+        <div layout-wrap layout-gt-sm="row dialog-checkbox">
+          <md-checkbox ng-model="contradictoryReport" aria-label="CheckBox for contradictory meeting">
+            Nécessité d’un rapport contradictoire avec NegoPartner
+          </md-checkbox>
+        </div>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <section layout layout-align="end center">
+        <md-button class="md-raised" ng-click="cancel()">
+          Annuler
+        </md-button>
+        <md-button ng-click="validateAudit()" class="md-raised md-primary">
+          Valider l'audit
+        </md-button>
+      </section>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

@@ -1,0 +1,52 @@
+.auditGlobal{
+  .siteName{
+    padding-left: 1%;
+  }
+  .md-subheader{
+    background-color: rgb(240,240,240);
+  }
+  .operation-line{
+    padding: 0 1%;
+    .operation-name{
+      font-weight: bold;
+    }
+    .operation-freq{
+      font-style: italic;
+    }
+    .commentary{
+      margin-left: 20px;
+    }
+  }
+  .audit-result{
+    padding:1%;
+    section:first-of-type{
+      padding:3%;
+      background-color: rgb(240, 240, 240);
+    }
+    section:last-of-type{
+      padding-top: 10px;
+    }
+    p{
+      font-size: large;
+      &.score{
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.audit-global-dialog{
+  .results{
+    p {
+      span{
+        font-weight: bold;
+      }
+      &.commentary{
+        font-style: italic;
+      }
+    }
+    &.dialog-checkbox{
+      margin-top: 20px;
+    }
+  }
+}

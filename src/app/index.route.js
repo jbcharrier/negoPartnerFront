@@ -71,6 +71,22 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
           }
         }
       }
+    })
+    .state('audit-global', {
+      url: '/audit-global',
+      templateUrl: 'app/audit/areas/auditGlobal/auditGlobal.html',
+      controller: 'AuditGlobalController',
+      resolve: {
+        "check": function(Auth, $state){
+          if(sessionStorage.getItem('access')){
+            console.log("Auth Permission OK session")
+          } else if (Auth.checkPermission()){
+            console.log("Auth Permission OK Auth")
+          } else {
+            $state.path('login');
+          }
+        }
+      }
     });
   $urlRouterProvider.otherwise('/');
 }

@@ -2,10 +2,6 @@ export class AuditProcessController {
   constructor ($scope, $stateParams, $mdDialog, $state, Account, Audit) {
     'ngInject';
   
-    // if(sessionStorage.getItem("areaId")){
-    //   sessionStorage.removeItem("areaId")
-    // }
-  
     if(sessionStorage.getItem("areaId")) {
       $scope.areaId = sessionStorage.getItem("areaId");
     } else {

@@ -13,6 +13,8 @@ import { AuditProcessController } from './audit/areas/auditProcess/auditProcessC
 import { AuditFactory } from './services/audit/audit.service';
 import { UserFactory } from './services/user/user.service';
 import { Auth } from './services/auth/auth.service';
+import { AuditGlobalController } from './audit/areas/auditGlobal/auditGlobalCtrl';
+
 
 angular.module('negoPartnerFront', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial', 'md.data.table'])
   .constant('moment', moment)
@@ -30,4 +32,5 @@ angular.module('negoPartnerFront', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngM
   .controller('AuditController', AuditController)
   .controller('AreasController', AreasController)
   .controller('AuditProcessController', AuditProcessController)
+  .controller('AuditGlobalController', AuditGlobalController)
   .directive('navbar', NavbarDirective);

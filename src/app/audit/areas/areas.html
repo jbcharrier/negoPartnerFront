@@ -1,7 +1,7 @@
 <div layout="vertical" layout-fill>
 
   <md-content flex>
-    <md-content class="areasList" layout="row">
+    <md-content class="areasList" layout="column">
       <md-card flex>
         <md-table-container ng-cloak layout-wrap>
           <table md-table style="text: center">
@@ -35,6 +35,13 @@
           </table>
         </md-table-container>
       </md-card>
+      <section layout layout-align="start center">
+        <a ui-sref="audit-global()">
+          <md-button class="md-raised md-primary">
+            Audit global du site
+          </md-button>
+        </a>
+      </section>
     </md-content>
 
   </md-content>

@@ -1,0 +1,76 @@
+<div layout="vertical" layout-fill>
+
+  <md-content flex>
+    <header>
+      <acme-navbar></acme-navbar>
+    </header>
+    <md-content class="auditGlobal" layout="column">
+      <md-card flex>
+        <h2 class="siteName">{{siteName}}</h2>
+        <section ng-repeat="area in areas" layout="column">
+          <md-subheader class="md-primary">{{area.name}}</md-subheader>
+          <div ng-repeat="operation in area.operations">
+            <div layout layout-align="start center" class="operation-line">
+              <div flex="35" flex-gt-sm="50" flex-gt-md="65">
+                <div layout>
+                  <div flex="50">
+                    <p class="operation-name">
+                      {{operation.name}}
+                    </p>
+                  </div>
+                  <div flex="50">
+                    <p class="operation-freq">
+                    {{operation.frequency}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div flex="65" flex-gt-sm="50" flex-gt-md="35" layout>
+                <md-radio-group ng-model="operation.result" class="md-primary" layout layout-align="center center" flex ng-change="updateScore(operation.result)">
+                  <md-radio-button name="okOperation" value='0' flex>
+                    <md-icon> done </md-icon>
+                  </md-radio-button>
+                  <md-radio-button name="nookOperation" value='1' flex>
+                    <md-icon> warning </md-icon>
+                  </md-radio-button>
+                </md-radio-group>
+                <md-input-container class="md-block commentary" flex="355">
+                  <label>Commentaire</label>
+                  <textarea ng-model="operation.commentary" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+              </div>
+            </div>
+            <md-divider></md-divider>
+          </div>
+        </section>
+      </md-card>
+      <md-card class="audit-result" layout layout-align="end center">
+        <span flex></span>
+        <div flex="65" flex-gt-sm="50" flex-gt-md="35">
+          <section layout="column">
+            <div layout>
+              <p flex="60">Nombre de points négatifs :</p>
+              <p class="score">{{alert}}</p>
+            </div>
+            <div layout>
+              <p flex="60">Note globale de l'audit :</p>
+              <p class="score">{{total}}</p>
+            </div>
+            <md-input-container class="md-block commentary">
+              <label>A faire pour le prochain audit</label>
+              <textarea ng-model="commentary" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </section>
+          <section layout layout-align="start center">
+            <md-button class="md-raised">
+              Retour à la liste des espaces
+            </md-button>
+            <md-button ng-click="showConfirm($event, total, alert, commentary)" class="md-raised md-primary">
+              Valider l'audit
+            </md-button>
+          </section>
+        </div>
+      </md-card>
+    </md-content>
+  </md-content>
+</div>
