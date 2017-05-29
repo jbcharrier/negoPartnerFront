@@ -7,28 +7,24 @@
           <table md-table style="text: center">
             <thead md-head>
             <tr md-row>
-              <th md-column><span>Espace de l'audit</span></th>
+              <th md-column><span>Espace(s)</span></th>
               <th md-column>Superficie (m2)</th>
               <th md-column>Description</th>
-              <th md-column>Opérations</th>
             </tr>
             </thead>
             <tbody md-body>
             <tr md-row ng-repeat="area in areas">
-              <td md-cell><a ui-sref="audit-process({accountId: accountId, siteId: siteId, areaId: area.id})"><b>{{ area.name }}</b></a></td>
+              <td md-cell>
+                <a ui-sref="area-details({areaId: area.id})">
+                  <b>{{ area.name }}</b>
+                  <md-tooltip md-direction="right">Voir les opérations de cet espace</md-tooltip>
+                </a>
+              </td>
               <td md-cell>
                 <span>{{area.surface}}</span>
               </td>
               <td md-cell>
                 <span>{{area.complement}}</span>
-              </td>
-              <td md-cell>
-                <ul class="operations-list">
-                  <li ng-repeat="operation in area.operations">
-                    <span>{{operation.name}}</span>
-                    <span>-&nbsp;</span>
-                  </li>
-                </ul>
               </td>
             </tr>
             </tbody>
@@ -38,12 +34,10 @@
       <section layout layout-align="start center">
         <a ui-sref="audit-global()">
           <md-button class="md-raised md-primary">
-            Audit global du site
+            Audit global du site pour les périodes en cours
           </md-button>
         </a>
       </section>
     </md-content>
-
   </md-content>
-
 </div>
