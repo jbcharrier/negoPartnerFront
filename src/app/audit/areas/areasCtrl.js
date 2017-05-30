@@ -1,5 +1,5 @@
 export class AreasController {
-  constructor ($scope, $stateParams, Account) {
+  constructor ($scope, $stateParams, $state, Account) {
     'ngInject';
   
     if(sessionStorage.getItem("areaId")){
@@ -21,6 +21,11 @@ export class AreasController {
       Account.getAreasList($scope.accountId, $scope.siteId).then(function (areas) {
         $scope.areas = areas;
       })
+    }
+    
+    $scope.showAudits = function (areaId) {
+      console.log("areaId", areaId);
+      $state.go('audit-historic', {areaId: areaId});
     }
   }
 }

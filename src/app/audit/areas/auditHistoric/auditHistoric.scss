@@ -1,0 +1,20 @@
+.auditsList{
+  h3{
+    padding-left: 24px;
+  }
+  tbody{
+    .operations-list{
+      padding: 0;
+      li{
+        display: inline-block;
+        list-style-type: none;
+      }
+    }
+    .past-operation-alert{
+      padding:0;
+      li{
+        list-style-type: none;
+      }
+    }
+  }
+}

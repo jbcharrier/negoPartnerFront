@@ -10,6 +10,7 @@
               <th md-column><span>Espace(s)</span></th>
               <th md-column>Superficie (m2)</th>
               <th md-column>Description</th>
+              <th md-column></th>
             </tr>
             </thead>
             <tbody md-body>
@@ -17,7 +18,7 @@
               <td md-cell>
                 <a ui-sref="area-details({areaId: area.id})">
                   <b>{{ area.name }}</b>
-                  <md-tooltip md-direction="right">Voir les opérations de cet espace</md-tooltip>
+                  <md-tooltip md-direction="right">Voir les audits et les opérations de cet espace</md-tooltip>
                 </a>
               </td>
               <td md-cell>
@@ -25,6 +26,14 @@
               </td>
               <td md-cell>
                 <span>{{area.complement}}</span>
+              </td>
+              <td md-cell class="align-right">
+                <md-button class="md-icon-button md-primary" ng-click="showAudits(area.id)">
+                  <md-icon class="material-icons themeBlue">content_paste</md-icon>
+                  <md-tooltip md-direction="right">
+                    Voir résultats audits passés
+                  </md-tooltip>
+                </md-button>
               </td>
             </tr>
             </tbody>

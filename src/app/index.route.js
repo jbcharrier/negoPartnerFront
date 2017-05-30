@@ -70,6 +70,25 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('audit-historic', {
+      url: '/audit-historic',
+      templateUrl: 'app/audit/areas/auditHistoric/auditHistoric.html',
+      controller: 'AuditHistoricController',
+      params:{
+        areaId: null
+      },
+      resolve: {
+        "check": function(Auth, $state){
+          if(sessionStorage.getItem('access')){
+            console.log("Auth Permission OK session")
+          } else if (Auth.checkPermission()){
+            console.log("Auth Permission OK Auth")
+          } else {
+            $state.path('login');
+          }
+        }
+      }
+    })
     .state('audit-process', {
       url: '/audit-process',
       templateUrl: 'app/audit/areas/auditProcess/auditProcess.html',
