@@ -1,5 +1,5 @@
 export class AuditGlobalController {
-  constructor ($scope, $mdDialog, $state, Audit) {
+  constructor ($scope, $mdDialog, $state, Audit, emailjs) {
     'ngInject';
     
     $scope.accountId = sessionStorage.getItem("accountId");
@@ -56,6 +56,13 @@ export class AuditGlobalController {
       })
         .then(function() {
           $scope.saveAudit($scope.areas);
+          
+          let service_id = 'mailgun';
+          let template_id = 'email_confirm_audit_done';
+          let params = {"reply_to": "jbcharrier33@gmail.com"};
+          emailjs.send(service_id, template_id, params);
+          
+          
           $state.go('areas', {accountId: $scope.accountId, siteId: $scope.siteId});
         }, function() {
           $scope.status = 'There\'s been a problem...';

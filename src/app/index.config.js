@@ -1,4 +1,4 @@
-export function config ($logProvider, $mdThemingProvider, firebase) {
+export function config ($logProvider, $mdThemingProvider, firebase, emailjs) {
   'ngInject';
   // Enable log
   $logProvider.debugEnabled(true);
@@ -16,4 +16,6 @@ export function config ($logProvider, $mdThemingProvider, firebase) {
   };
 
   firebase.initializeApp(config);
+  
+  emailjs.init("user_NPZaLE6qcm2eZNmBAVG5n");
 }

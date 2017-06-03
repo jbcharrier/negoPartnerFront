@@ -1,4 +1,4 @@
-/* global moment:false, firebase:false */
+/* global moment:false, firebase:false, emailjs:false */
 
 import { config } from './index.config';
 import { routerConfig } from './index.route';
@@ -21,6 +21,7 @@ import { AuditHistoricController } from './audit/areas/auditHistoric/auditHistor
 angular.module('negoPartnerFront', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial', 'md.data.table'])
   .constant('moment', moment)
   .constant('firebase', firebase)
+  .constant('emailjs', emailjs)
   .config(config)
   .config(routerConfig)
   .run(runBlock)
