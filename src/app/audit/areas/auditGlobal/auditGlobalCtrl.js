@@ -56,10 +56,13 @@ export class AuditGlobalController {
       })
         .then(function() {
           $scope.saveAudit($scope.areas);
-          
+          console.log("$scope.areas", $scope.areas);
           let service_id = 'mailgun';
           let template_id = 'email_confirm_audit_done';
-          let params = {"reply_to": "jbcharrier33@gmail.com"};
+          let params = {"reply_to": "jbcharrier33@gmail.com",
+                        "siteName": $scope.siteName,
+                        "areas": $scope.areas[0].name,
+                        "auditId": $scope.areas[0].id};
           emailjs.send(service_id, template_id, params);
           
           
