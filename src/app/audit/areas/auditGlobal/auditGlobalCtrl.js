@@ -54,15 +54,15 @@ export class AuditGlobalController {
         clickOutsideToClose:true,
         fullscreen: $scope.customFullscreen
       })
-        .then(function() {
+        .then(function(contradReport) {
           $scope.saveAudit($scope.areas);
-          console.log("$scope.areas", $scope.areas);
           let service_id = 'mailgun';
           let template_id = 'email_confirm_audit_done';
           let params = {"reply_to": "jbcharrier33@gmail.com",
                         "siteName": $scope.siteName,
                         "areas": $scope.areas[0].name,
-                        "auditId": $scope.areas[0].id};
+                        "auditId": $scope.areas[0].id,
+                        "contradReport": contradReport};
           emailjs.send(service_id, template_id, params);
           
           
@@ -75,6 +75,7 @@ export class AuditGlobalController {
     function DialogController($scope, $mdDialog) {
       
       $scope.infos = $mdDialog.params;
+      $scope.contradictoryReport = false;
       
       $scope.hide = function() {
         $mdDialog.hide();
@@ -84,8 +85,8 @@ export class AuditGlobalController {
         $mdDialog.cancel();
       };
     
-      $scope.validateAudit = function() {
-        $mdDialog.hide();
+      $scope.validateAudit = function(contradReport) {
+        $mdDialog.hide(contradReport);
       };
     }
   }

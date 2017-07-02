@@ -11,6 +11,7 @@
     <md-content class="auditGlobal" layout="column">
       <md-card flex>
         <h2 class="siteName">{{siteName}}</h2>
+        <p class="no-audit" ng-if="areas.length < 1">Vous n'avez pas d'audit à réaliser à ce jour !</p>
         <section ng-repeat="area in areas" layout="column">
           <md-subheader class="md-primary">{{area.name}}</md-subheader>
           <div ng-repeat="operation in area.operations">

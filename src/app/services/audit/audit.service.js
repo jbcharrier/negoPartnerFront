@@ -26,7 +26,7 @@ export class AuditFactory {
     let dateNewAudit;
     switch (audit.auditFrequency) {
       case "Ponctuel":
-        dateNewAudit = Infinity;
+        dateNewAudit = dateNow + 1000 * 60 * 60 * 24 * 30.4 * 12 * 40;
         break;
       case "Mensuel":
         dateNewAudit = dateNow + 1000 * 60 * 60 * 24 * 30.4;
